@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Fun Zone</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #f4f4f4;
+      padding: 40px;
+      text-align: center;
+    }
+    #warning {
+      padding: 20px;
+      background-color: #ffdddd;
+      border: 2px dashed red;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: none;
+      animation: shake 0.3s ease-in-out infinite;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background-color: #ffe066;
+      border: 2px solid #ff9900;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffd633;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0px); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💼 Finance Department Portal 💸</h1>
+
+  <div id="warning">🚨 Budget Overload Detected!<br>Cancel all coffee subscriptions ☕🚫</div>
+
+  <button onclick="triggerAudit()">Trigger Surprise Audit</button>
+
+  <script>
+    function triggerAudit() {
+      const warning = document.getElementById('warning');
+      warning.style.display = 'block';
+
+      const confetti = ['💰', '📉', '📈', '🧾', '🤑'];
+      let count = 0;
+
+      const interval = setInterval(() => {
+        document.title = confetti[count % confetti.length] + " Finance Panic Mode " + confetti[count % confetti.length];
+        count++;
+
+        if (count > 10) {
+          clearInterval(interval);
+          document.title = "💼 Finance Department Portal";
+        }
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
